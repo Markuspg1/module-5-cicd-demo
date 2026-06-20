@@ -1,4 +1,4 @@
-FEATURE_MESSAGE = "Modulo 5: pruebas automatizadas activas cambio en dev"
+FEATURE_MESSAGE = "Modulo 5: cambio aprobado en dev, dispara el pipeline"
 
 
 def calculate_total(subtotal: float, discount_rate: float) -> float:
