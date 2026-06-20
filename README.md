@@ -71,11 +71,29 @@ Ese workflow vuelve a correr pruebas, crea el artefacto de produccion y ejecuta 
 
 ## Ejecutar localmente
 
+El paquete vive en `src/`, asi que `build_site.py` necesita `PYTHONPATH=src`
+para encontrar `pipeline_demo` (igual que en el workflow de CI). `pytest` ya lo
+resuelve solo gracias a `pyproject.toml`.
+
+En macOS / Linux (bash):
+
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements-dev.txt
 pytest
+PYTHONPATH=src python scripts/build_site.py --environment local --output dist
+python scripts/smoke_test.py --environment local --site dist
+```
+
+En Windows (PowerShell):
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements-dev.txt
+pytest
+$env:PYTHONPATH = "src"
 python scripts/build_site.py --environment local --output dist
 python scripts/smoke_test.py --environment local --site dist
 ```
