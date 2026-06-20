@@ -1,0 +1,9 @@
+[project]
+name = "module-5-cicd-demo"
+version = "1.0.0"
+description = "Small CI/CD demo for automated tests and promotion gates"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
